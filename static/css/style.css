@@ -1,0 +1,70 @@
+/* html body section for index.html*/
+#index{
+    background-image: url("/static/images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*app heading section*/
+.app-header{
+    border-radius: 15px;
+    background-color: rgb(68, 67, 67);
+    text-align: center;
+    color: wheat;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 2px;
+}
+
+/*configuration paragraph headline*/
+#config-para{
+    font-size: 1.3em;
+}
+
+/* configuration inputs section */
+.config-inputs{
+    background-color: #fcede3;
+    border-radius: 30px;
+    margin-top: 50px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+/*required star*/
+#reqrd{
+    color: red;
+    font-size: 12px;
+}
+
+/*body section for predict.html*/
+#predict{
+    background-image: url("/static/images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*prediction section*/
+.prediction{
+    background-color: #fdf2eb;
+    border-radius: 30px;
+    margin-top: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+/*prediction result*/
+.result{
+    padding-top: 5%;
+}
+
+/*message*/
+.message{
+    padding-top: 10%;
+    text-align: center;
+}
