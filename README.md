@@ -38,3 +38,14 @@ Follow the below the steps for Installation of the appilication:
 
 ## Screenshots
 
+![image](https://github.com/gourav1001/Laptop-Price-Predictor/assets/87244158/f4240948-4e75-4b34-87cc-382ca78f8807)
+![image](https://github.com/gourav1001/Laptop-Price-Predictor/assets/87244158/9c2ad056-578d-448b-96e7-4a4b3fd7753f)
+![image](https://github.com/gourav1001/Laptop-Price-Predictor/assets/87244158/effa992f-ac6e-4039-9ad9-034129dd2063)
+![image](https://github.com/gourav1001/Laptop-Price-Predictor/assets/87244158/90d0753b-4af2-479b-bc9e-818c578ea979)
+![image](https://github.com/gourav1001/Laptop-Price-Predictor/assets/87244158/5ee01190-0194-4e6d-add4-98bffce9b767)
+
+
+
+
+
+
