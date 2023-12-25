@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<head>
+   <!--Page icon-->
+   <link rel="icon" href="{{ url_for('static', filename = 'images/logo.png') }}">
+   <!--Stylesheet-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/style.css') }}">
+    <!--Bootstrap CSS CDN-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Laptop Price Predictor</title>
+</head>
+<body id="index">
+    <!--App heading section-->
+    <div class="app-header">
+        <h1>Laptop Price Predictor</h1>
+    </div>
+    <!--Bootstrap container class-->
+    <div class="container">
+        <!--configurations inputs section-->
+        <div class="row">
+            <div class="col-md-10 col-sm-10 offset-1">
+                <!--configuration input container-->
+                <div class="config-inputs">
+                    <p id="config-para">Please enter the following laptop configurations:</p>
+                    <br/>
+                    <!--Form section-->
+                    <form id="config-form" action="{{ url_for('predict') }}" method="POST">
+                        <!--company name selectbox-->
+                        <div class="form-group">
+                            <label><h4>Company</h4></label>
+                            <sup id="reqrd">*</sup>
+                            <select name="company" class="form-control" required>
+                                <option value="Lenovo">Lenovo</option>
+                                <option value="Dell">Dell</option>
+                                <option value="HP">HP</option>
+                                <option value="Asus">Asus</option>
+                                <option value="Acer">Acer</option>
+                                <option value="MSI">MSI</option>
+                                <option value="Toshiba">Toshiba</option>
+                                <option value="Apple">Apple</option>
+                                <option value="Samsung">Samsung</option>
+                                <option value="Mediacom">Mediacom</option>
+                                <option value="Razer">Razer</option>
+                                <option value="Microsoft">Microsoft</option>
+                                <option value="Vero">Vero</option>
+                                <option value="Xiaomi">Xiaomi</option>
+                                <option value="Fujitsu">Fujitsu</option>
+                                <option value="Google">Google</option>
+                                <option value="Chuwi">Chuwi</option>
+                                <option value="LG">LG</option>
+                                <option value="Huawei">Huawei</option>
+                            </select>
+                        </div>
+                        <br/>
+                        <!--TypeName section-->
+                        <div class="form-group">
+                            <label><h4>Laptop Type</h4></label>
+                            <sup id="reqrd">*</sup>
+                            <select name="typename" class="form-control" required>
+                                <option value="Notebook">Notebook</option>
+                                <option value="Gaming">Gaming</option>
+                                <option value="Ultrabook">Ultrabook</option>
+                                <option value="2 in 1 Convertible">2 in 1 Convertible</option>
+                                <option value="Workstation">Workstation</option>
+                                <option value="Netbook">Netbook</option>
+                            </select>
+                        </div>
+                        <br/>
+                        <!--Ram size section-->
+                        <div class="form-group">
+                            <label><h4>RAM Size</h4></label>
+                            <sup id="reqrd">*</sup>
+                            <div class="input-group">
+                                <select name="ram" class="form-control" required>
+                                    <option value="2">2</option>
+                                    <option value="4">4</option>
+                                    <option value="6">6</option>
+                                    <option value="8">8</option>
+                                    <option value="12">12</option>
+                                    <option value="16">16</option>
+                                    <option value="24">24</option>
+                                    <option value="32">32</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">GB</span>
+                                </div>
+                            </div>    
+                        </div>
+                        <br/>
+                        <!--weight section-->
+                        <div class="form group">
+                            <label><h4>Weight</h4></label>
+                            <sup id="reqrd">*</sup>
+                            <div class="input-group">
+                                <input type="text" name="weight" class="form-control" placeholder="Enter the Weight (in kg) of the laptop" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Kg</span>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <!--screen size section-->
+                        <div class="form group">
+                            <label><h4>Screen Size</h4></label>
+                            <sup id="reqrd">*</sup>
+                            <div class="input-group">
+                                <input type="text" name="screen-size" class="form-control" placeholder="Enter the Screen Size (in inches) of the laptop" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Inch</span>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <!--screen resolution section-->
+                        <div class="form-group">
+                            <label><h4>Screen Resolution</h4></label>
+                            <sup id="reqrd">*</sup>
+                            <select name="screen-resolution" class="form-control" required>
+                                <option value="1920x1080">1920 x 1080</option>
+                                <option value="1366x768">1366 x 768</option>
+                                <option value="1600x900">1600 x 900</option>
+                                <option value="3840x2160">3840 x 2160</option>
+                                <option value="3200x1800">3200 x 1800</option>
+                                <option value="2880x1800">2880 x 1800</option>
+                                <option value="2560x1600">2560 x 1600</option>
+                                <option value="2560x1440">2560 x 1440</option>
+                                <option value="2304x1440">2304 x 1440</option>
+                            </select> 
+                        </div>
+                        <br/>
+                        <!--ips panel section-->
+                        <div class="form-group">
+                            <label><h4>IPS Panel</h4></label>
+                            <sup id="reqrd">*</sup><br/>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ips" value="Yes" id="true" required>
+                                <label class="form-check-label" for="true">Yes<label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ips" value="No" id="false" required>
+                                <label class="form-check-label" for="false">No<label>
+                            </div>
+                        </div>
+                        <br/>
+                        <!--touchscreen section-->
+                        <div class="form-group">
+                            <label><h4>Touchscreen</h4></label>
+                            <sup id="reqrd">*</sup><br/>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="touchscreen" value="Yes" id="true" required>
+                                <label class="form-check-label" for="true">Yes<label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="touchscreen" value="No" id="false" required>
+                                <label class="form-check-label" for="false">No<label>
+                            </div>
+                        </div>
+                        <br/>
+                        <!--cpu brand section-->
+                        <div class="form-group">
+                            <label><h4>CPU Brand</h4></label>
+                            <sup id="reqrd">*</sup>
+                            <select name="cpu-brand" class="form-control" required>
+                                <option value="Intel Core i7">Intel Core i7</option>
+                                <option value="Intel Core i5">Intel Core i5</option>
+                                <option value="Intel Core i3">Intel Core i3</option>
+                                <option value="Other Intel Processor">Other Intel Processor</option>
+                                <option value="AMD">AMD</option>
+                            </select> 
+                        </div>
+                        <br/>
+                        <!--hdd section-->
+                        <div class="form-group">
+                            <label><h4>HDD Size</h4></label>
+                            <sup id="reqrd">*</sup>
+                            <div class="input-group">
+                                <select name="hdd" class="form-control" required>
+                                    <option value="0" selected>0</option>
+                                    <option value="128">128</option>
+                                    <option value="256">256</option>
+                                    <option value="512">512</option>
+                                    <option value="1024">1024</option>
+                                    <option value="2048">2048</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">GB</span>
+                                </div>
+                            </div>    
+                        </div>
+                        <br/>
+                        <!--ssd section-->
+                        <div class="form-group">
+                            <label><h4>SSD Size</h4></label>
+                            <div class="input-group">
+                                <select name="ssd" class="form-control">
+                                    <option value="0" selected>0</option>
+                                    <option value="8">8</option>
+                                    <option value="128">128</option>
+                                    <option value="256">256</option>
+                                    <option value="512">512</option>
+                                    <option value="1024">1024</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">GB</span>
+                                </div>
+                            </div>    
+                        </div>
+                        <br/>
+                        <!--gpu brand section-->
+                        <div class="form-group">
+                            <label><h4>GPU Brand</h4></label>
+                            <sup id="reqrd">*</sup>
+                            <select name="gpu-brand" class="form-control" required>
+                                <option value="Intel">Intel</option>
+                                <option value="Nvidia">Nvidia</option>
+                                <option value="AMD">AMD</option>
+                            </select> 
+                        </div>
+                        <br/>
+                        <!--os section-->
+                        <div class="form-group">
+                            <label><h4>Operating System</h4></label>
+                            <sup id="reqrd">*</sup>
+                            <select name="operating-system" class="form-control" required>
+                                <option value="Windows">Windows</option>
+                                <option value="Mac">Mac</option>
+                                <option value="Other OS / No OS">Others</option>
+                            </select> 
+                        </div>
+                        <br/><br/><br/><br/>
+                        <!--form submission section-->
+                        <div style="text-align: center;">
+                            <!--submit button for predicting price of laptop-->
+                            <button type="submit" value="submit" class="btn btn-outline-primary">Predict</button>
+                            &nbsp;&nbsp;
+                            <!--Reset button resetting values-->
+                            <button type="reset" value="reset" class="btn btn-outline-danger">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+</body>
+</html>
